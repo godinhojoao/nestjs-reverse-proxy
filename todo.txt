@@ -1,5 +1,0 @@
-repo title:
-Proxy solution to incrementally refactor a legacy rest application. The new api will redirect the requests to the legacy or point to the new code.
-
-- [ ] add unitary tests
-- [ ] add ci/cd to run eslint and tests
