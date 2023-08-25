@@ -1,0 +1,35 @@
+name: Continuous integration/deployment
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "**"
+jobs:
+  client:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./src
+    steps:
+      - name: Checkout nestjs-reverse-proxy
+        uses: actions/checkout@v1
+
+      - name: Set up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.17.1
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Linting
+        run: npm run lint
+
+      - name: Unit testing
+        run: npm run test
+
+      - name: Build
+        run: npm run build
